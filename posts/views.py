@@ -8,7 +8,6 @@ from posts.models import Post, Comment, PostImage, HashTag
 
 
 def feeds(request):
-    3/0  # 강제로 오류발생
     user = request.user
     if not user.is_authenticated:
         return redirect("users:login")
