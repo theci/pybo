@@ -8,6 +8,7 @@ from posts.models import Post, Comment, PostImage, HashTag
 
 
 def feeds(request):
+    3/0  # 강제로 오류발생
     user = request.user
     if not user.is_authenticated:
         return redirect("users:login")
@@ -130,5 +131,10 @@ def post_like(request, post_id):
     # next로 값이 전달되었다면 해당 위치로, 전달되지 않았다면 피드페이지에서 해당 Post위치로 이동한다
     url_next = request.GET.get("next") or reverse("posts:feeds") + f"#post-{post.id}"
     return HttpResponseRedirect(url_next)
+
+
+import logging
+logger = logging.getLogger('pybo')
+
 
 
